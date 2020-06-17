@@ -48,6 +48,8 @@
 
 #define FXOS8700Q_WHOAMI_VAL 0xC7
 
+
+
 RawSerial pc(USBTX, USBRX);
 
 RawSerial xbee(D12, D11);
@@ -76,12 +78,12 @@ void FXOS8700CQ_readRegs(int addr, uint8_t * data, int len);
 void FXOS8700CQ_writeRegs(uint8_t * data, int len);
 void getlog_XBee(Arguments *in, Reply *out);
 
-void getAcc(Arguments *in, Reply *out);
+void getAcc();
 
 void getAddr(Arguments *in, Reply *out);
 
 
-RPCFunction rpcAcc(&getAcc, "getAcc");
+//RPCFunction rpcAcc(&getAcc, "getAcc");
 
 RPCFunction rpcLog(&getlog_XBee, "getlog_XBee");
 
@@ -169,15 +171,6 @@ void getAcc() {
 
 }
 
-  /* pc.printf("FXOS8700Q ACC: X=%1.4f(%x%x) Y=%1.4f(%x%x) Z=%1.4f(%x%x)",\
-
-         t[0], res[0], res[1],\
-
-         t[1], res[2], res[3],\
-
-         t[2], res[4], res[5]\
-
-   );*/
 
 
 
